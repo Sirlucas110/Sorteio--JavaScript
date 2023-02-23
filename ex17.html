@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio</title>
+    <style>
+        body{
+            text-align: center;
+            font: normal20px arial;
+        }
+        input{
+            width: 100px;
+            height: 30px;
+            background: rgb(5, 231, 179);
+           
+        }
+        div{
+            font: normal 20px arial;
+        }
+    </style>
+</head>
+<body>
+    <h1><strong>Sorteio</strong></h1>
+    <input type="button" value="Iniciar Sorteio" onclick="verificar()">
+    <input type="button" value="Outro Sorteio" onclick="limpar()">
+    <div id="res"><p>Sorteio entre números de 1 a 100</p></div>
+
+    <script>
+        function verificar(){
+            var min = 1
+            var max = 100
+            var dif = max - min
+            var sorteio = Math.random()
+            var num = 1 + Math.trunc(dif * sorteio)
+            var res = document.querySelector('div#res')
+            res.innerHTML += `<p>O número sorteado foi ${num}</p>`
+        }
+        function limpar(){
+            var res = document.querySelector('div#res')
+            res.innerHTML = null
+            res.innerHTML += '<p>Novo sorteio entre números de 1 a 100</p>'
+        }
+    </script>
+</body>
+</html>
